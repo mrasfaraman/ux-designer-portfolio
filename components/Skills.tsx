@@ -2,25 +2,25 @@
 
 const skillCategories = [
   {
-    category: "UX Research",
+    category: "UI Design",
     color: "#8b5cf6",
-    icon: "🔍",
+    icon: "🎨",
     skills: [
-      { name: "User Interviews", level: 95 },
-      { name: "Usability Testing", level: 92 },
-      { name: "Persona Creation", level: 90 },
-      { name: "Journey Mapping", level: 88 },
+      { name: "Visual Design", level: 80 },
+      { name: "Typography", level: 78 },
+      { name: "Color Theory", level: 82 },
+      { name: "Responsive Layouts", level: 85 },
     ],
   },
   {
-    category: "UI Design",
+    category: "UX & Research",
     color: "#06b6d4",
-    icon: "🎨",
+    icon: "🔍",
     skills: [
-      { name: "Visual Design", level: 97 },
-      { name: "Typography", level: 93 },
-      { name: "Color Theory", level: 95 },
-      { name: "Interaction Design", level: 90 },
+      { name: "User-Centered Design", level: 85 },
+      { name: "Wireframing", level: 90 },
+      { name: "User Flows", level: 82 },
+      { name: "Accessibility", level: 78 },
     ],
   },
   {
@@ -28,34 +28,36 @@ const skillCategories = [
     color: "#f472b6",
     icon: "⚡",
     skills: [
-      { name: "Wireframing", level: 98 },
-      { name: "High-fi Prototypes", level: 94 },
-      { name: "Micro-animations", level: 85 },
-      { name: "Design Systems", level: 91 },
+      { name: "Figma Prototypes", level: 88 },
+      { name: "Interactive Design", level: 80 },
+      { name: "Design Systems", level: 75 },
+      { name: "Component Libraries", level: 72 },
     ],
   },
   {
-    category: "Strategy",
+    category: "Collaboration",
     color: "#34d399",
-    icon: "📊",
+    icon: "🤝",
     skills: [
-      { name: "Info. Architecture", level: 88 },
-      { name: "Competitive Analysis", level: 85 },
-      { name: "A/B Testing", level: 82 },
-      { name: "Stakeholder Mgmt", level: 87 },
+      { name: "Dev Handoff", level: 80 },
+      { name: "Design Critiques", level: 82 },
+      { name: "Remote Teamwork", level: 88 },
+      { name: "UX Writing", level: 85 },
     ],
   },
 ];
 
 const softSkills = [
   "Empathy-driven thinking",
-  "Cross-functional collaboration",
-  "Rapid prototyping",
-  "Design critique",
-  "Agile / Scrum",
+  "Clear communication",
+  "User-centered approach",
+  "Problem solving",
+  "Attention to detail",
+  "Information architecture",
   "Storytelling",
-  "Systems thinking",
-  "Data-driven design",
+  "Adaptability",
+  "Remote collaboration",
+  "Continuous learning",
 ];
 
 export default function Skills() {
@@ -70,9 +72,7 @@ export default function Skills() {
         {/* Label */}
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 rounded-full" style={{ background: "linear-gradient(180deg, #8b5cf6, #06b6d4)" }} />
-          <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#8b5cf6]">
-            Expertise
-          </span>
+          <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#8b5cf6]">Expertise</span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -81,17 +81,19 @@ export default function Skills() {
             style={{ fontFamily: "var(--font-syne)" }}
           >
             Skills &{" "}
-            <span style={{
-              background: "linear-gradient(135deg, #8b5cf6, #06b6d4)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>
+            <span
+              style={{
+                background: "linear-gradient(135deg, #8b5cf6, #06b6d4)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
               Capabilities
             </span>
           </h2>
           <p className="text-[#64748b] max-w-sm text-sm leading-relaxed">
-            A broad spectrum of design competencies refined through real-world projects across industries.
+            Core competencies built through training, freelance work, and a genuine passion for great design.
           </p>
         </div>
 
@@ -103,18 +105,15 @@ export default function Skills() {
               className="rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-300 group"
               style={{ background: "rgba(19,19,26,0.9)" }}
             >
-              {/* Icon */}
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl mb-5"
                 style={{ background: `${cat.color}15`, border: `1px solid ${cat.color}30` }}
               >
                 {cat.icon}
               </div>
-
               <h3 className="text-white font-bold mb-5" style={{ fontFamily: "var(--font-syne)" }}>
                 {cat.category}
               </h3>
-
               <div className="space-y-4">
                 {cat.skills.map((skill) => (
                   <div key={skill.name}>
@@ -144,7 +143,7 @@ export default function Skills() {
           style={{ background: "rgba(19,19,26,0.9)" }}
         >
           <p className="text-xs font-bold text-[#475569] tracking-[0.2em] uppercase mb-5">
-            Soft Skills & Approaches
+            Soft Skills & Strengths
           </p>
           <div className="flex flex-wrap gap-3">
             {softSkills.map((s) => (

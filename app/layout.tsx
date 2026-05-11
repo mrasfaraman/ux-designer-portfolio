@@ -15,13 +15,13 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Morgan — UI/UX Designer",
+  title: "Aqsa Zainab — Junior UI/UX Designer",
   description:
-    "Award-winning UI/UX designer crafting intuitive digital experiences that delight users and drive business growth. Available for freelance projects.",
-  keywords: ["UI designer", "UX designer", "product designer", "Figma", "design portfolio"],
+    "Junior UI/UX Designer with hands-on experience in web and mobile design. Proficient in Figma, wireframes, prototypes and user-centered design. Based in Rawalpindi, Pakistan.",
+  keywords: ["UI designer", "UX designer", "Figma", "junior designer", "Aqsa Zainab", "Pakistan"],
   openGraph: {
-    title: "Alex Morgan — UI/UX Designer",
-    description: "Award-winning UI/UX designer crafting intuitive digital experiences.",
+    title: "Aqsa Zainab — Junior UI/UX Designer",
+    description: "Junior UI/UX Designer crafting intuitive web and mobile interfaces.",
     type: "website",
   },
 };

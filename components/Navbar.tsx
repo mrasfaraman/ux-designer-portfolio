@@ -48,7 +48,7 @@ export default function Navbar() {
             className="font-semibold text-white text-lg"
             style={{ fontFamily: "var(--font-syne)" }}
           >
-            Alex Morgan
+            Aqsa Zainab
           </span>
         </button>
 
@@ -69,7 +69,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="mailto:hello@alexmorgan.design"
+            href="mailto:zainabaqsa6@gmail.com"
             className="px-5 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] text-white hover:opacity-90 transition-opacity"
           >
             Hire Me
@@ -98,7 +98,7 @@ export default function Navbar() {
             </button>
           ))}
           <a
-            href="mailto:hello@alexmorgan.design"
+            href="mailto:zainabaqsa6@gmail.com"
             className="mt-2 px-5 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] text-white text-center"
           >
             Hire Me
