@@ -1,70 +1,211 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Smartphone, Globe, ShoppingBag, Heart } from "lucide-react";
+import { useState } from "react";
 
 const projects = [
   {
     id: "01",
-    title: "FinFlow – Banking Redesign",
-    category: "Fintech · Mobile App",
+    title: "EatEasy – Food Delivery App",
+    category: "Mobile App · UX/UI Design",
+    type: "Concept Project",
     description:
-      "Complete UX overhaul of a legacy banking app serving 2M+ users. Reduced onboarding drop-off by 60% and increased DAU by 35% through research-backed design decisions.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop",
-    tags: ["UX Research", "Mobile", "Design System"],
-    color: "#8b5cf6",
+      "Designed a complete food delivery experience for a local restaurant app targeting Pakistani users. Focused on simplifying the ordering flow, reducing steps to checkout, and making the interface accessible to first-time smartphone users.",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop",
+    tags: ["Figma", "User Flows", "Prototyping", "Mobile UI"],
+    color: "#f472b6",
+    icon: Smartphone,
     metrics: [
-      { label: "Drop-off Reduced", value: "60%" },
-      { label: "DAU Increase", value: "35%" },
+      { label: "Screens Designed", value: "24" },
+      { label: "Checkout Steps", value: "3" },
     ],
+    what: "Wireframes, high-fi UI, clickable Figma prototype, user flow diagrams",
+    tools: "Figma · FigJam · Maze",
   },
   {
     id: "02",
-    title: "Novu – SaaS Dashboard",
-    category: "SaaS · Web Application",
+    title: "MediCare – Healthcare Booking",
+    category: "Mobile App · Accessibility Design",
+    type: "Concept Project",
     description:
-      "End-to-end design of a complex data analytics dashboard for enterprise clients. Built a scalable design system with 200+ components used across 5 product teams.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop",
-    tags: ["Design System", "Dashboard", "Enterprise"],
-    color: "#06b6d4",
+      "Redesigned a doctor appointment booking app with a strong focus on accessibility and older users. Applied WCAG guidelines, high-contrast color systems, and large tap targets to ensure usability for all age groups.",
+    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&auto=format&fit=crop",
+    tags: ["Accessibility", "Figma", "Design System", "Mobile UI"],
+    color: "#34d399",
+    icon: Heart,
     metrics: [
-      { label: "Components Built", value: "200+" },
-      { label: "Teams Using System", value: "5" },
+      { label: "Accessibility Score", value: "AA+" },
+      { label: "Components Built", value: "30+" },
     ],
+    what: "Persona research, wireframes, design system, hi-fi prototype",
+    tools: "Figma · Stark · FigJam",
   },
   {
     id: "03",
-    title: "Shopwise – E-commerce App",
-    category: "E-commerce · iOS & Android",
+    title: "LearnHub – E-Learning Platform",
+    category: "Web Design · Responsive UI",
+    type: "Training Project — Future Tech Institute",
     description:
-      "Reimagined the shopping experience for a fashion brand's mobile app. A/B tested 12 checkout variations resulting in a 48% conversion rate improvement.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
-    tags: ["E-commerce", "Conversion", "Mobile"],
-    color: "#f472b6",
+      "Designed a responsive e-learning web platform for students and instructors. Created the complete information architecture, dashboard layouts, and a reusable component library following modern UI design trends.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop",
+    tags: ["Web Design", "Responsive", "Component Library", "IA"],
+    color: "#8b5cf6",
+    icon: Globe,
     metrics: [
-      { label: "Conversion Boost", value: "48%" },
-      { label: "Checkout Variants", value: "12" },
+      { label: "Pages Designed", value: "12" },
+      { label: "Reusable Components", value: "40+" },
     ],
+    what: "IA mapping, responsive wireframes, UI design, component library",
+    tools: "Figma · Notion · FigJam",
   },
   {
     id: "04",
-    title: "Horizon – Travel Platform",
-    category: "Travel · Web & Mobile",
+    title: "ShopLocal – E-Commerce App",
+    category: "Mobile App · E-Commerce UI",
+    type: "Concept Project",
     description:
-      "Designed an AI-powered travel planning platform from 0→1. Led user research across 4 countries and created an inclusive design accessible to all ability levels.",
-    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&auto=format&fit=crop",
-    tags: ["0→1 Design", "AI Product", "Accessibility"],
-    color: "#34d399",
+      "Crafted a mobile shopping app UI tailored for local small businesses in Pakistan. Designed a clean product browsing experience, intuitive cart flow, and a simple seller dashboard to help vendors manage listings easily.",
+    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&auto=format&fit=crop",
+    tags: ["E-Commerce", "Mobile UI", "Figma", "User Flow"],
+    color: "#06b6d4",
+    icon: ShoppingBag,
     metrics: [
-      { label: "Accessibility Score", value: "AAA" },
-      { label: "Countries Researched", value: "4" },
+      { label: "User Screens", value: "20+" },
+      { label: "Seller Screens", value: "10+" },
     ],
+    what: "User journey maps, wireframes, hi-fi UI, Figma prototype",
+    tools: "Figma · Miro · FigJam",
   },
 ];
 
+function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)" }}
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-3xl rounded-3xl overflow-hidden border border-white/10 max-h-[90vh] overflow-y-auto"
+        style={{ background: "#13131a" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Image */}
+        <div className="relative h-64 overflow-hidden">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            sizes="768px"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: `linear-gradient(to bottom, ${project.color}20, rgba(19,19,26,0.9))` }}
+          />
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center text-white border border-white/20 hover:border-white/40 transition-colors"
+            style={{ background: "rgba(0,0,0,0.5)" }}
+          >
+            ✕
+          </button>
+          {/* Type badge */}
+          <div
+            className="absolute bottom-4 left-6 text-[10px] font-bold px-3 py-1 rounded-full"
+            style={{ background: `${project.color}25`, color: project.color, border: `1px solid ${project.color}40` }}
+          >
+            {project.type}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-8">
+          <div className="flex items-start justify-between gap-4 mb-4">
+            <div>
+              <div className="text-xs text-[#64748b] mb-1">{project.category}</div>
+              <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-syne)" }}>
+                {project.title}
+              </h3>
+            </div>
+            <div
+              className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
+              style={{ background: `${project.color}15`, border: `1px solid ${project.color}30` }}
+            >
+              <project.icon size={20} style={{ color: project.color }} />
+            </div>
+          </div>
+
+          <p className="text-[#94a3b8] leading-relaxed mb-8">{project.description}</p>
+
+          <div className="grid sm:grid-cols-3 gap-4 mb-8">
+            {/* Metrics */}
+            {project.metrics.map((m) => (
+              <div
+                key={m.label}
+                className="rounded-2xl p-4 border border-white/5 text-center"
+                style={{ background: "rgba(255,255,255,0.03)" }}
+              >
+                <div className="text-2xl font-bold mb-1" style={{ color: project.color, fontFamily: "var(--font-syne)" }}>
+                  {m.value}
+                </div>
+                <div className="text-xs text-[#64748b]">{m.label}</div>
+              </div>
+            ))}
+            <div
+              className="rounded-2xl p-4 border border-white/5 text-center"
+              style={{ background: "rgba(255,255,255,0.03)" }}
+            >
+              <div className="text-lg font-bold mb-1 text-white" style={{ fontFamily: "var(--font-syne)" }}>
+                Figma
+              </div>
+              <div className="text-xs text-[#64748b]">Primary Tool</div>
+            </div>
+          </div>
+
+          <div className="space-y-4 mb-8">
+            <div className="rounded-2xl p-5 border border-white/5" style={{ background: "rgba(255,255,255,0.02)" }}>
+              <div className="text-xs font-bold text-[#475569] uppercase tracking-widest mb-2">Deliverables</div>
+              <div className="text-sm text-[#94a3b8]">{project.what}</div>
+            </div>
+            <div className="rounded-2xl p-5 border border-white/5" style={{ background: "rgba(255,255,255,0.02)" }}>
+              <div className="text-xs font-bold text-[#475569] uppercase tracking-widest mb-2">Tools Used</div>
+              <div className="text-sm text-[#94a3b8]">{project.tools}</div>
+            </div>
+          </div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1 rounded-full text-xs"
+                style={{
+                  border: `1px solid ${project.color}30`,
+                  color: project.color,
+                  background: `${project.color}10`,
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
+  const [activeProject, setActiveProject] = useState<typeof projects[0] | null>(null);
+
   return (
     <section id="work" className="py-28 relative overflow-hidden" style={{ background: "#0a0a0f" }}>
+      {activeProject && (
+        <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
+      )}
+
       <div
         className="absolute top-1/3 right-0 w-[400px] h-[600px] opacity-6 pointer-events-none"
         style={{ background: "radial-gradient(circle, #f472b6 0%, transparent 70%)", filter: "blur(100px)" }}
@@ -74,9 +215,7 @@ export default function Projects() {
         {/* Label */}
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 rounded-full" style={{ background: "linear-gradient(180deg, #8b5cf6, #06b6d4)" }} />
-          <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#8b5cf6]">
-            Case Studies
-          </span>
+          <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#8b5cf6]">Case Studies</span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -85,17 +224,19 @@ export default function Projects() {
             style={{ fontFamily: "var(--font-syne)" }}
           >
             Selected{" "}
-            <span style={{
-              background: "linear-gradient(135deg, #8b5cf6, #06b6d4)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>
+            <span
+              style={{
+                background: "linear-gradient(135deg, #8b5cf6, #06b6d4)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
               Work
             </span>
           </h2>
           <p className="text-[#64748b] max-w-xs text-sm">
-            Real problems, real outcomes — every project tells a story.
+            Concept & training projects built with Figma — click any to view the full case study.
           </p>
         </div>
 
@@ -103,14 +244,13 @@ export default function Projects() {
           {projects.map((p, i) => (
             <div
               key={p.id}
-              className="group rounded-3xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-500"
+              className="group rounded-3xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer"
               style={{ background: "rgba(19,19,26,0.9)" }}
+              onClick={() => setActiveProject(p)}
             >
               <div className={`grid lg:grid-cols-2 ${i % 2 === 1 ? "lg:grid-flow-dense" : ""}`}>
                 {/* Image */}
-                <div
-                  className={`relative h-64 md:h-80 overflow-hidden ${i % 2 === 1 ? "lg:col-start-2" : ""}`}
-                >
+                <div className={`relative h-64 md:h-80 overflow-hidden ${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
                   <Image
                     src={p.image}
                     alt={p.title}
@@ -118,14 +258,19 @@ export default function Projects() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  {/* Color tint */}
                   <div
                     className="absolute inset-0"
                     style={{ background: `linear-gradient(135deg, ${p.color}20 0%, transparent 60%)` }}
                   />
-                  {/* Project number */}
+                  {/* Type badge */}
                   <div
-                    className="absolute top-6 right-6 text-5xl font-bold text-white/10"
+                    className="absolute bottom-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full"
+                    style={{ background: "rgba(0,0,0,0.6)", color: p.color, border: `1px solid ${p.color}40`, backdropFilter: "blur(8px)" }}
+                  >
+                    {p.type}
+                  </div>
+                  <div
+                    className="absolute top-4 right-4 text-5xl font-bold text-white/10"
                     style={{ fontFamily: "var(--font-syne)" }}
                   >
                     {p.id}
@@ -150,9 +295,7 @@ export default function Projects() {
                     {p.title}
                   </h3>
 
-                  <p className="text-[#94a3b8] leading-relaxed mb-6 text-sm">
-                    {p.description}
-                  </p>
+                  <p className="text-[#94a3b8] leading-relaxed mb-6 text-sm">{p.description}</p>
 
                   {/* Metrics */}
                   <div className="flex gap-8 mb-7">

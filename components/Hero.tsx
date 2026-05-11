@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown, Sparkles, Play } from "lucide-react";
+import { ArrowDown, Sparkles } from "lucide-react";
 
 const stats = [
   { value: "1+", label: "Year in UX" },
@@ -229,13 +229,6 @@ export default function Hero() {
               >
                 View My Work
                 <ArrowDown size={15} className="-rotate-90" />
-              </button>
-              <button
-                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-[#94a3b8] border border-white/10 hover:border-[#8b5cf6]/50 hover:text-white transition-all duration-200 text-sm"
-              >
-                <Play size={13} className="fill-current" />
-                Let&apos;s Talk
               </button>
             </div>
 

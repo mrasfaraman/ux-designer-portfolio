@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { CheckCircle, Download, Briefcase, BookOpen, PenTool } from "lucide-react";
 
 const highlights = [
@@ -76,29 +75,76 @@ export default function About() {
           {/* LEFT — image + experience */}
           <div className="relative">
             <div
-              className="relative rounded-3xl overflow-hidden"
-              style={{ aspectRatio: "4/5", maxWidth: "400px" }}
+              className="relative rounded-3xl overflow-hidden flex items-center justify-center"
+              style={{
+                aspectRatio: "4/5",
+                maxWidth: "400px",
+                background: "linear-gradient(145deg, #13131a 0%, #1a1128 60%, #0f1a2e 100%)",
+                border: "1px solid rgba(139,92,246,0.25)",
+              }}
             >
-              <div
-                className="absolute inset-0 rounded-3xl z-10 pointer-events-none"
-                style={{ boxShadow: "inset 0 0 0 1px rgba(139,92,246,0.3)" }}
-              />
-              <Image
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&auto=format&fit=crop"
-                alt="Aqsa Zainab – Junior UI/UX Designer"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 400px"
-              />
-              <div
-                className="absolute inset-0"
-                style={{ background: "linear-gradient(to top, #0a0a0f 0%, rgba(10,10,15,0.3) 40%, transparent 70%)" }}
-              />
-              <div className="absolute bottom-6 left-6 right-6 z-10">
-                <div className="text-white font-bold text-xl" style={{ fontFamily: "var(--font-syne)" }}>
-                  Aqsa Zainab
+              {/* Decorative blobs inside card */}
+              <div className="absolute top-0 right-0 w-48 h-48 rounded-full opacity-20 pointer-events-none"
+                style={{ background: "radial-gradient(circle, #8b5cf6, transparent 70%)", filter: "blur(40px)" }} />
+              <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full opacity-15 pointer-events-none"
+                style={{ background: "radial-gradient(circle, #06b6d4, transparent 70%)", filter: "blur(40px)" }} />
+
+              {/* SVG Avatar illustration */}
+              <div className="relative z-10 flex flex-col items-center justify-center gap-6 px-8 pt-12 pb-6 w-full h-full">
+                {/* Avatar circle */}
+                <div className="relative">
+                  <div
+                    className="w-36 h-36 rounded-full flex items-center justify-center"
+                    style={{ background: "linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)" }}
+                  >
+                    {/* Female silhouette SVG */}
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-24 h-24">
+                      {/* Head */}
+                      <circle cx="50" cy="32" r="16" fill="white" fillOpacity="0.95" />
+                      {/* Hair */}
+                      <path d="M34 28 Q34 14 50 14 Q66 14 66 28 Q66 20 58 18 Q50 16 42 18 Q36 20 34 28Z" fill="white" fillOpacity="0.7" />
+                      {/* Body / shoulders */}
+                      <path d="M24 90 Q24 62 38 58 Q44 56 50 56 Q56 56 62 58 Q76 62 76 90Z" fill="white" fillOpacity="0.85" />
+                      {/* Collar / neckline detail */}
+                      <path d="M44 58 Q50 66 56 58" stroke="rgba(139,92,246,0.6)" strokeWidth="1.5" fill="none" />
+                    </svg>
+                  </div>
+                  {/* Status ring */}
+                  <div
+                    className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full flex items-center justify-center"
+                    style={{ background: "#0a0a0f", border: "2px solid #8b5cf6" }}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
+                      <path d="M12 2L13.5 8H20L14.5 11.5L16.5 18L12 14L7.5 18L9.5 11.5L4 8H10.5L12 2Z"
+                        fill="#8b5cf6" />
+                    </svg>
+                  </div>
                 </div>
-                <div className="text-[#94a3b8] text-sm">Junior UI/UX Designer · Rawalpindi, Pakistan</div>
+
+                {/* Floating design tool chips */}
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {["Figma", "UX Design", "Prototyping", "Wireframes"].map((tag, i) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 rounded-full text-xs font-medium"
+                      style={{
+                        background: i % 2 === 0 ? "rgba(139,92,246,0.15)" : "rgba(6,182,212,0.12)",
+                        color: i % 2 === 0 ? "#a78bfa" : "#67e8f9",
+                        border: `1px solid ${i % 2 === 0 ? "rgba(139,92,246,0.3)" : "rgba(6,182,212,0.25)"}`,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Name overlay at bottom */}
+                <div className="text-center mt-auto">
+                  <div className="text-white font-bold text-xl" style={{ fontFamily: "var(--font-syne)" }}>
+                    Aqsa Zainab
+                  </div>
+                  <div className="text-[#94a3b8] text-sm mt-1">Junior UI/UX Designer · Rawalpindi, Pakistan</div>
+                </div>
               </div>
             </div>
 
@@ -226,7 +272,9 @@ export default function About() {
             </div>
 
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/uc?export=download&id=1VKVQuHeWVrypH-XhKfu8U0vrJGilSnxz"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border transition-all duration-200"
               style={{ borderColor: "rgba(139,92,246,0.4)", color: "#a78bfa" }}
             >

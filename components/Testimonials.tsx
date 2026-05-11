@@ -1,42 +1,41 @@
 "use client";
 
-import Image from "next/image";
 import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "CEO, FinFlow Technologies",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&facepad=3",
-    quote:
-      "Alex completely transformed our product. The redesign wasn't just beautiful — it reduced our support tickets by 40% because the interface became so intuitive. I've never worked with a designer who understood both users and business so deeply.",
-    rating: 5,
-    project: "FinFlow Banking App",
+    name: "Usman Tariq",
+    role: "Lead Instructor, Future Tech Institute",
+    initials: "UT",
     color: "#8b5cf6",
+    quote:
+      "Aqsa stood out during her training for one reason — she actually thinks about the user before touching Figma. Her wireframes were always well-reasoned, and she picked up design systems faster than most trainees I've worked with. She has a strong foundation to build on.",
+    rating: 5,
+    project: "UI/UX Training Programme",
   },
   {
-    name: "Marcus Williams",
-    role: "Head of Product, Novu",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&facepad=3",
-    quote:
-      "The design system Alex built saved months of engineering time and brought visual consistency we'd never had before. She pushed back on bad ideas with data, and delivered with incredible attention to detail. A true design partner.",
-    rating: 5,
-    project: "Novu Design System",
+    name: "Bilal Raza",
+    role: "Frontend Developer · Remote Collaborator",
+    initials: "BR",
     color: "#06b6d4",
+    quote:
+      "I worked with Aqsa on a small client project remotely. Her handoff files in Figma were clean and properly organised — no back-and-forth needed. She communicated clearly, responded quickly, and was open to adjusting designs when there were technical constraints. Made my job a lot easier.",
+    rating: 5,
+    project: "Freelance Web Project",
   },
   {
-    name: "Priya Patel",
-    role: "Founder, Horizon Travel",
-    avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&auto=format&fit=crop&facepad=3",
-    quote:
-      "Working with Alex on a 0→1 product was exceptional. She led research across 4 countries, synthesized complex findings, and designed an experience our users love. Our app store rating went from 3.1 to 4.8 after launch.",
-    rating: 5,
-    project: "Horizon Travel Platform",
+    name: "Sana Malik",
+    role: "Small Business Owner · Client",
+    initials: "SM",
     color: "#f472b6",
+    quote:
+      "I asked Aqsa to redesign my bakery's online menu and order page. She asked good questions first — about my customers, how they order, what confuses them — before designing anything. The final design was clean and my customers actually find it easier to use. Very happy with the result.",
+    rating: 5,
+    project: "Small Business Website",
   },
 ];
 
-const clients = ["Stripe", "Notion", "Airbnb", "Spotify", "Figma", "Vercel", "Linear", "Loom"];
+const clients = ["Future Tech", "Bloomfield Hall", "Figma", "FigJam", "Maze", "Miro", "Notion"];
 
 export default function Testimonials() {
   return (
@@ -50,9 +49,7 @@ export default function Testimonials() {
         {/* Label */}
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 rounded-full" style={{ background: "linear-gradient(180deg, #8b5cf6, #06b6d4)" }} />
-          <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#8b5cf6]">
-            Testimonials
-          </span>
+          <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#8b5cf6]">Testimonials</span>
         </div>
 
         <div className="text-center max-w-2xl mx-auto mb-14">
@@ -60,18 +57,20 @@ export default function Testimonials() {
             className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4"
             style={{ fontFamily: "var(--font-syne)" }}
           >
-            What Clients{" "}
-            <span style={{
-              background: "linear-gradient(135deg, #8b5cf6, #06b6d4)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>
+            What People{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #8b5cf6, #06b6d4)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
               Say
             </span>
           </h2>
           <p className="text-[#64748b]">
-            Don&apos;t take my word for it — here&apos;s what the people I&apos;ve worked with have to say.
+            Feedback from people I&apos;ve learned from, collaborated with, and designed for.
           </p>
         </div>
 
@@ -83,7 +82,7 @@ export default function Testimonials() {
               className="rounded-3xl p-8 border border-white/5 hover:border-white/10 transition-all duration-300 hover:-translate-y-1 flex flex-col relative group"
               style={{ background: "rgba(19,19,26,0.9)" }}
             >
-              {/* Top accent */}
+              {/* Top accent line on hover */}
               <div
                 className="absolute top-0 left-8 right-8 h-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                 style={{ background: `linear-gradient(90deg, transparent, ${t.color}, transparent)` }}
@@ -109,10 +108,13 @@ export default function Testimonials() {
                 {t.project}
               </div>
 
-              {/* Author */}
+              {/* Author — initials avatar instead of photo */}
               <div className="flex items-center gap-3 border-t border-white/5 pt-5">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden" style={{ outline: `2px solid ${t.color}50`, outlineOffset: "2px" }}>
-                  <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="40px" />
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
+                  style={{ background: `linear-gradient(135deg, ${t.color}cc, ${t.color}66)` }}
+                >
+                  {t.initials}
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-white">{t.name}</div>
@@ -123,16 +125,16 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Trusted by */}
+        {/* Tools / associations strip */}
         <div className="text-center">
-          <p className="text-xs font-bold text-[#2d3748] tracking-[0.25em] uppercase mb-10">
-            Trusted by teams at
+          <p className="text-xs font-bold text-[#2d3748] tracking-[0.25em] uppercase mb-8">
+            Tools & Platforms I Work With
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             {clients.map((c) => (
               <span
                 key={c}
-                className="text-[#2d3748] font-bold text-xl hover:text-[#475569] transition-colors cursor-default"
+                className="text-[#2d3748] font-bold text-lg hover:text-[#475569] transition-colors cursor-default"
                 style={{ fontFamily: "var(--font-syne)" }}
               >
                 {c}

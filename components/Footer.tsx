@@ -20,8 +20,6 @@ const links = {
   Connect: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/aqsa-zainab-525070236" },
     { label: "Email", href: "mailto:zainabaqsa6@gmail.com" },
-    { label: "Dribbble", href: "https://dribbble.com" },
-    { label: "Behance", href: "https://behance.net" },
   ],
 };
 

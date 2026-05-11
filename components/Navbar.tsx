@@ -41,9 +41,6 @@ export default function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex items-center gap-2 group"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#8b5cf6] to-[#06b6d4] flex items-center justify-center text-white font-bold text-sm">
-            A
-          </div>
           <span
             className="font-semibold text-white text-lg"
             style={{ fontFamily: "var(--font-syne)" }}
